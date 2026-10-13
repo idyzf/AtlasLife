@@ -267,6 +267,7 @@ if('IntersectionObserver' in window){
 ---------------------------------------------------------------- */
 function initHelix(){
   var canvas = document.getElementById('gl');
+  if (!canvas) return;
   var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true, powerPreference:'high-performance'});
   renderer.setClearColor(0x000000, 0);
   renderer.outputEncoding = THREE.sRGBEncoding;
@@ -407,7 +408,7 @@ function initHelix(){
 }
 
 try{
-  if(window.THREE){ initHelix(); } else { root.classList.add('no-gl'); }
+  if(window.THREE && document.getElementById('gl')){ initHelix(); }
 }catch(err){
   root.classList.add('no-gl');
   console.error('Helix: WebGL unavailable', err);
@@ -417,3 +418,5 @@ try{
 route();
 
 })();
+
+
