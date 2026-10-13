@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="color-scheme" content="dark">
+    <title>AtlasLife: a guided tour of DNA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="backdrop" aria-hidden="true"></div>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="guide" aria-hidden="true"></div>
+
+<div id="site">
+  <div class="brand">AtlasLife</div>
+
+  <main id="main">
+    <header class="hero">
+      <div class="col">
+        <h1>Scroll to turn the helix.</h1>
+        <p>A short tour of genes, mutations and diseases. Each stop along the way opens its own page.</p>
+      </div>
+    </header>
+
+    <div class="col" id="stops">
+      <section class="stop">
+        <a class="stop-link" href="#/structure">
+          <h2>How DNA is built</h2>
+          <p>Two backbones, four bases, and the pairing rules that hold them together.</p>
+          <span class="stop-go">Open the structure page</span>
+        </a>
+      </section>
+      <section class="stop">
+        <a class="stop-link" href="#/replication">
+          <h2>How it copies itself</h2>
+          <p>Unzip, prime, extend, stitch. One double helix becomes two.</p>
+          <span class="stop-go">Open the replication page</span>
+        </a>
+      </section>
+      <section class="stop">
+        <a class="stop-link" href="#/genes">
+          <h2>How genes become proteins</h2>
+          <p>Transcription and translation: from a sequence of letters to a working molecule.</p>
+          <span class="stop-go">Open the genes page</span>
+        </a>
+      </section>
+      <section class="stop">
+        <a class="stop-link" href="#/mutations">
+          <h2>How it changes</h2>
+          <p>Mutations, repair, and why a single letter can matter or not at all.</p>
+          <span class="stop-go">Open the mutations page</span>
+        </a>
+      </section>
+    </div>
+
+    <section class="more" aria-labelledby="more-h">
+      <div class="col">
+        <h2 id="more-h">Keep exploring</h2>
+        <div class="cards">
+          <a class="card card-a" href="#/complement">
+            <h3>Complement a strand</h3>
+            <p>Type a short sequence. See its partner strand and the protein it would build.</p>
+            <div class="card-vis" aria-hidden="true">
+              <div class="pairs">
+                <div class="pair"><span class="tile b-A">A</span><i></i><span class="tile b-T">T</span></div>
+                <div class="pair"><span class="tile b-T">T</span><i></i><span class="tile b-A">A</span></div>
+                <div class="pair"><span class="tile b-G">G</span><i></i><span class="tile b-C">C</span></div>
+                <div class="pair"><span class="tile b-C">C</span><i></i><span class="tile b-G">G</span></div>
+                <div class="pair"><span class="tile b-A">A</span><i></i><span class="tile b-T">T</span></div>
+              </div>
+            </div>
+            <span class="card-go">Open the tool</span>
+          </a>
+          <a class="card card-b" href="#/glossary">
+            <h3>Glossary</h3>
+            <p>Twelve terms from this tour, defined in plain language.</p>
+            <div class="card-vis" aria-hidden="true">
+              <div class="terms"><span>Codon</span><span>Helicase</span><span>Genome</span></div>
+            </div>
+            <span class="card-go">Open the glossary</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="col"><p>A human genome holds about 3.1 billion base pairs, wound into 23 pairs of chromosomes.</p></div>
+    </footer>
+  </main>
+</div>
+
+<div id="page" class="page" role="dialog" aria-modal="true" aria-label="Details" hidden>
+  <div class="page-inner">
+    <button class="back" type="button" id="back">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg>
+      Back to the helix
+    </button>
+    <article id="page-body" tabindex="-1"></article>
+    <nav class="page-next" id="page-next" aria-label="Next page"></nav>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
